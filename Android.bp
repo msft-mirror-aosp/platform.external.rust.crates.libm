@@ -54,28 +54,19 @@ rust_library {
     min_sdk_version: "29",
 }
 
-rust_defaults {
-    name: "libm_test_defaults",
+rust_test {
+    name: "libm_test_src_lib",
+    host_supported: true,
     crate_name: "libm",
-    srcs: ["src/lib.rs"],
     cargo_env_compat: true,
     cargo_pkg_version: "0.2.1",
+    srcs: ["src/lib.rs"],
     test_suites: ["general-tests"],
     auto_gen_config: true,
-    edition: "2018",
-    features: ["default"],
-    proc_macros: ["libno_panic"],
-}
-
-rust_test_host {
-    name: "libm_host_test_src_lib",
-    defaults: ["libm_test_defaults"],
     test_options: {
         unit_test: true,
     },
-}
-
-rust_test {
-    name: "libm_device_test_src_lib",
-    defaults: ["libm_test_defaults"],
+    edition: "2018",
+    features: ["default"],
+    proc_macros: ["libno_panic"],
 }
