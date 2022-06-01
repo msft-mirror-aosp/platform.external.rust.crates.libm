@@ -5,6 +5,14 @@
       "path": "external/rust/crates/quiche"
     }
   ],
+  "postsubmit": [
+    {
+      "name": "doh_unit_test"
+    },
+    {
+      "name": "libm_test_src_lib"
+    }
+  ],
   "presubmit": [
     {
       "name": "doh_unit_test"
